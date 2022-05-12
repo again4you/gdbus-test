@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<node name="/Org/Tizen/MachineLearning/Service/Calc">
+  <interface name="org.tizen.machinelearning.service.calc">
+    <method name="add">
+      <arg type="i" name="left" direction="in" />
+      <arg type="i" name="right" direction="in" />
+      <arg type="i" name="result" direction="out" />
+    </method>
+  </interface>
+</node>
