@@ -8,14 +8,14 @@ guint owner_id;
 GMainLoop *loop;
 
 static gboolean
-handler_add (MachinelearningServiceCalc *interface,
+handler_add (MachinelearningService *interface,
             GDBusMethodInvocation *invocation,
             int left, int right, gpointer user_data)
 {
   int result = left + right;
   fprintf(stderr, "handler_add(): %d + %d = %d\n", left, right, result);
 
-  machinelearning_service_calc_complete_add (interface, invocation, result);
+  machinelearning_service_complete_add (interface, invocation, result);
 
   return TRUE;
 }
@@ -26,13 +26,13 @@ on_bus_acquired (GDBusConnection *connection,
                 const gchar *name,
                 gpointer user_data)
 {
-  MachinelearningServiceCalc *interface;
+  MachinelearningService *interface;
   gboolean ret;
   GError *error = NULL;
 
   fprintf(stderr, "Acquire name: %s\n", name);
 
-  interface = machinelearning_service_calc_skeleton_new ();
+  interface = machinelearning_service_skeleton_new ();
 
   g_signal_connect (interface, "handle-add",
                   G_CALLBACK (handler_add), NULL);
