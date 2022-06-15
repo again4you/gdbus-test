@@ -1,0 +1,11 @@
+[dbus-send Usage]
+
+dbus-send --system --print-reply --dest=[service] [objectname] [interface].[method] [parameters]
+
+dbus-send --session --print-reply --dest=org.tizen.machinelearning.service.calc \
+    /Org/Tizen/MachineLearning/Service/Calc \
+    org.tizen.machinelearning.service.calc.add \
+    int32:10 int32:20
+
+[Reference]
+* https://sheitsandgiggles.com/2019/07/16/a-trip-into-dbus-send/
